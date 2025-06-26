@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded JavaScript Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 15px;
+            margin-top: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #colorChangeText {
+            font-weight: bold;
+            margin-top: 20px;
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to My Page!</h1>
+
+        <p>Current Date and Time:</p>
+        <p id="datetimeDisplay"></p>
+
+        <hr>
+
+        <p id="colorChangeText">Click the button below to change my color!</p>
+        <button onclick="changeTextColor()">Change Text Color</button>
+    </div>
+
+    <script>
+        // JavaScript code starts here
+
+        // Function to display current date and time
+        function displayCurrentDateTime() {
+            const now = new Date(); // Creates a new Date object for the current moment
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                timeZoneName: 'short'
+            };
+            const formattedDateTime = now.toLocaleDateString('en-US', options); // Formats the date
+
+            // Get the paragraph element by its ID and update its content
+            document.getElementById('datetimeDisplay').textContent = formattedDateTime;
+        }
+
+        // Call the function when the page loads
+        displayCurrentDateTime();
+
+        // Function to change the color of the text
+        function changeTextColor() {
+            const textElement = document.getElementById('colorChangeText');
+            // Generate a random hex color
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            textElement.style.color = randomColor;
+        }
+
+        // JavaScript code ends here
+    </script>
+
+</body>
+</html>
