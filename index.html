@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple PyScript Example</title>
+    <title>Add Two Numbers</title>
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
-    <script defer src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 <body>
-    <h1>My PyScript Page</h1>
+    <h1>Add Two Numbers with PyScript</h1>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button py-click="add_numbers">Add</button>
+
+    <div id="output"></div>
+
     <py-script>
-        print("Hello, PyScript!")
+        from js import document, console # Import document and console for debugging
+
+        def add_numbers(event=None):
+            # Use document.getElementById to get the DOM element
+            num1_element = document.getElementById("num1")
+            num2_element = document.getElementById("num2")
+            output_element = document.getElementById("output")
+
+            # Access the value property of the DOM element
+            num1_str = num1_element.value
+            num2_str = num2_element.value
+
+            try:
+                num1 = float(num1_str)
+                num2 = float(num2_str)
+                sum_result = num1 + num2
+                # Use .textContent for writing plain text to prevent XSS and for consistency
+                output_element.textContent = f"The sum is: {sum_result}"
+            except ValueError:
+                output_element.textContent = "Please enter valid numbers."
+            except Exception as e:
+                console.error(f"An unexpected error occurred: {e}") # Log other errors
     </py-script>
 </body>
 </html>

@@ -1,2 +1,26 @@
-git init 
+git init ##
 git add .
+
+PS C:\Users\Rich\Downloads\javascript> git config --global user.email "r******@gmail.com"
+
+PS C:\Users\Rich\Downloads\javascript> git config --global user.name "richinpro"             
+
+PS C:\Users\Rich\Downloads\javascript> git commit -m"first commit"
+On branch main
+nothing to commit, working tree clean
+
+PS C:\Users\Rich\Downloads\javascript> git remote add origin https://github.com/richinpro/pyscript.git
+error: remote origin already exists.
+
+PS C:\Users\Rich\Downloads\javascript> git push -u origin main
+info: please complete authentication in your browser...
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.54 KiB | 790.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/richinpro/pyscript.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+PS C:\Users\Rich\Downloads\javascript>
